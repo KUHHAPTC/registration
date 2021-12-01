@@ -4,4 +4,5 @@ from users import views
 
 urlpatterns = [
     path('', views.CheckUser.as_view()),
+    path('me/', views.HelloView.as_view()),
 ]
