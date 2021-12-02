@@ -4,14 +4,14 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from users.serializers import GetAllUserInfo
+from users.serializers import UserDetail
 
 
 class CheckUser(APIView):
 
     def get(self, request):
         users = User.objects.all()
-        serializer = GetAllUserInfo(users, many=True)
+        serializer = UserDetail(users, many=True)
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 
@@ -20,5 +20,5 @@ class HelloView(APIView):
 
     def get(self, request):
         user = User.objects.get(username=request.user.username)
-        serializer = GetAllUserInfo(user)
+        serializer = UserDetail(user)
         return Response(status=status.HTTP_200_OK, data=serializer.data)
