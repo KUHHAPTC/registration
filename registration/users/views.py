@@ -22,3 +22,4 @@ class HelloView(APIView):
         user = User.objects.get(username=request.user.username)
         serializer = UserDetail(user)
         return Response(status=status.HTTP_200_OK, data=serializer.data)
+
