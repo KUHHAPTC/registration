@@ -1,8 +1,9 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-$j^xlgmw^shu2g!*_z&=wgr7m_kzdu!428p!iacr2j+l(q+%4i'
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG = True
 
@@ -20,7 +21,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     *THIRD_PARTY_APPS,
-
 ]
 
 REST_FRAMEWORK = {
@@ -61,8 +61,12 @@ WSGI_APPLICATION = 'registration.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ["DB_NAME"],
+        'USER': os.environ["DB_USER"],
+        'PASSWORD': os.environ["DB_PASS"],
+        'HOST': os.environ["CHANNEL_HOST"],
+        'PORT': os.environ["DB_PORT"],
     }
 }
 
