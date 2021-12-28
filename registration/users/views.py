@@ -12,5 +12,3 @@ class HelloView(APIView):
 
     def get(self, request):
         return Response(status=status.HTTP_200_OK, data=UserDetail(request.user).data)
-
-
