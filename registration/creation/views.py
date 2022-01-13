@@ -9,7 +9,7 @@ from users.serializers import UserDetail
 class CreateUser(APIView):
 
     def post(self, request):
-        serializer = UserDetail(data=request.data)
+        serializer = UserCreate(data=request.data)
         serializer.is_valid(raise_exception=True)
         User.objects.create_user(**serializer.data)
         return Response(status=status.HTTP_201_CREATED, data=serializer.data)
