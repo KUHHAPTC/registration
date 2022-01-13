@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from users.serializers import UserDetail
 
 
-class HelloView(APIView):
+class UserMeView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
