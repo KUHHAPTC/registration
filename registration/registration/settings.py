@@ -1,17 +1,24 @@
 import os
 from pathlib import Path
 
+from bool_dict import BOOL_DICT
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = os.environ["DEBUG"]
+DEBUG = BOOL_DICT[os.environ["DEBUG"]]
 
 ALLOWED_HOSTS = []
 
 THIRD_PARTY_APPS = [
     'rest_framework',
 ]
+
+MY_APPS = [
+    'users.apps.UsersConfig',
+    'creation.apps.CreationConfig',
+ ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -21,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     *THIRD_PARTY_APPS,
+    *MY_APPS,
 ]
 
 REST_FRAMEWORK = {
@@ -71,6 +79,8 @@ DATABASES = {
 }
 
 
+AUTH_USER_MODEL = 'users.CustomUser'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -99,3 +109,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = os.environ["EMAIL_HOST"]
+EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_PORT = os.environ["EMAIL_PORT"]
+EMAIL_USE_TLS = BOOL_DICT[os.environ["EMAIL_USE_TLS"]]
+EMAIL_USE_SSL = BOOL_DICT[os.environ["EMAIL_USE_SSL"]]
