@@ -8,6 +8,9 @@ django = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 psycopg2-binary = "*"
+redis = "*"
+celery = {extras = ["redis"], version = "*"}
+flower = "*"
 
 [dev-packages]
 
