@@ -1,3 +1,4 @@
+from __future__ import absolute_import, unicode_literals
 from django.core.mail import send_mail
 from registration.celery import app
 from registration.settings import EMAIL_HOST_USER

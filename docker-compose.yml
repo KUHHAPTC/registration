@@ -9,3 +9,6 @@ services:
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASS
       POSTGRES_DB: $DB_NAME
+#  python:
+#    image: python:3.9
+#    command: python manage.py runserver
