@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from bool_dict import BOOL_DICT
+from services.bool_dict import BOOL_DICT
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
