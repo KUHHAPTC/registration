@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from users.serializers import UserCreate, UserDetail
+from users.serializers import UserCreateSerializer
 from users.models import CustomUser
 from .tasks import task_send_mail
 
@@ -14,7 +14,7 @@ from .tasks import task_send_mail
 class CreateUser(APIView):
 
     def post(self, request):
-        serializer = UserCreate(data=request.data)
+        serializer = UserCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = CustomUser.objects.create_user(**serializer.data)
         token = default_token_generator.make_token(user)
