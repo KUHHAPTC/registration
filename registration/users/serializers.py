@@ -3,7 +3,7 @@ from rest_framework import serializers
 from users.models import CustomUser
 
 
-class UserCreate(serializers.ModelSerializer):
+class UserCreateSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=100)
 
     class Meta:
@@ -11,7 +11,7 @@ class UserCreate(serializers.ModelSerializer):
         fields = ('password', 'username', 'first_name', 'last_name', 'email', )
 
 
-class UserDetail(serializers.ModelSerializer):
+class UserDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
