@@ -8,4 +8,5 @@ urlpatterns = [
     path('api/users/', include('users.urls')),
     path('api/token/', jwt_views.TokenObtainPairView.as_view()),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view()),
+    path('api/articles/', include('articles.urls')),
 ]

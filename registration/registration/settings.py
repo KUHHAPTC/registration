@@ -18,6 +18,7 @@ THIRD_PARTY_APPS = [
 MY_APPS = [
     'users.apps.UsersConfig',
     'creation.apps.CreationConfig',
+    'articles.apps.ArticlesConfig',
  ]
 
 INSTALLED_APPS = [
